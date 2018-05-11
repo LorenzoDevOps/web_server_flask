@@ -6,4 +6,5 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip install -r requirements.txt
 COPY . /app
-CMD [ "python", "hello.py"]
+ENTRYPOINT ["python","hello.py","runserver"]
+CMD ["-h=0.0.0.0"]
