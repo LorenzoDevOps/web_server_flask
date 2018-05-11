@@ -1,8 +1,5 @@
-FROM ubuntu:16.04
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
-COPY ./requirements.txt /app/requirements.txt
-WORKDIR /app
+FROM python:3.4-alpine
+ADD . /code
+WORKDIR /code
 RUN pip install -r requirements.txt
-COPY . /app
-CMD [ "python", "hello.py"]
+CMD ["python", "hello.py"]
